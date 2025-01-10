@@ -3,8 +3,8 @@ const swaggerAutogen = require('swagger-autogen')
 
  const doc = {
     info: {
-      title: 'My API',
-      description: 'Description'
+      title: 'MongoDB API',
+      description: 'MongoDB API'
     },
     host: 'localhost:3000'
   };
