@@ -2,7 +2,7 @@
   "name": "mongodb-api",
   "version": "1.0.0",
   "description": "mongodb api",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "server": "nodemon server.js",
     "gen": "nodemon ./swagger/index.js"
