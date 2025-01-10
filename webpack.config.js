@@ -4,10 +4,14 @@ module.exports = {
   entry: './server.js',
   output: {
     path: path.join(__dirname, 'dist'),
-    publicPath: '/',
-    filename: 'server.js',
+    filename: "[name].js"
   },
-  target: 'node',
+   optimization: {
+     splitChunks: {
+      chunks: 'all'
+    }
+  },
+  target: 'node'
 };
 
 //https://github.com/ammy82068/express-webpack-poc/tree/main

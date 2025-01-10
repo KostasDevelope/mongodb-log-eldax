@@ -6,7 +6,8 @@
   "scripts": {
     "server": "nodemon server.js",
     "gen": "nodemon ./swagger/index.js",
-    "build": "webpack"
+    "build": "webpack",
+    "prod": "node dist/main.js"
   },
   "repository": {
     "type": "git",
