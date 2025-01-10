@@ -1,0 +1,27 @@
+{
+  "name": "mongodb-api",
+  "version": "1.0.0",
+  "description": "mongodb api",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YauhenKavalchuk/mongodb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YauhenKavalchuk/mongodb/issues"
+  },
+  "homepage": "https://github.com/YauhenKavalchuk/mongodb#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
