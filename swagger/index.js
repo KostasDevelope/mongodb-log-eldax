@@ -10,7 +10,7 @@ const swaggerAutogen = require('swagger-autogen')
   };
 
 const outputFile = join(__dirname, '../swagger/output.json')
-const endpointsFiles = [join(__dirname, '../server.js')]
+const endpointsFiles = [join(__dirname, '../index.js')]
 
 swaggerAutogen(outputFile, endpointsFiles, doc).then(({ success }) => {
  console.log(`Generated: ${success}`)
