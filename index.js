@@ -7,8 +7,8 @@ const SwaggerRoutes = require('./routes/swagger-routes');
 
 //https://github.com/YauhenKavalchuk/mongodb/blob/lesson_20/server.js
 const port = 3000;
-const url = 'mongodb://srvnt68-isrtsql:27017/moviebox';
-//const url = 'mongodb://localhost:27017/moviebox';
+//const url = 'mongodb://srvnt68-isrtsql:27017/moviebox';
+const url = 'mongodb://localhost:27017/moviebox';
 const app = express();
 
 app.use(cors());

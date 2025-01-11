@@ -24,3 +24,7 @@ nssm install
 https://pm2.keymetrics.io/docs/usage/quick-start/
  npm install pm2@latest -g
   pm2 start main.js
+
+  //==============================mongodb===============
+  brew services start mongodb-community
+
