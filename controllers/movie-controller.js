@@ -28,10 +28,8 @@ const searchMovies = (req,res) =>
             .then((total) => {
                 let page = parseInt(req.params.page) || 1; 
                 let limit = parseInt(req.params.limit) || parseInt(total);
-                let last_page = Math.ceil(parseInt( total)/limit);
-            
-                if (last_page < 1 && total > 0) 
-                    last_page = 1
+                let last_page = Math.ceil(parseInt(total)/limit);
+                if (last_page < 1 && total > 0) last_page = 1
                 Movie
                     .find(options)
                     .sort({title : -1})
@@ -68,7 +66,7 @@ const deleteMovie = (req,res) =>
             res.status(200).json(result);
             })
             .catch((error)=>  hendleError(res, error )); 
-    }; 
+    };
 
 const postMovie = (req,res) =>
     {
