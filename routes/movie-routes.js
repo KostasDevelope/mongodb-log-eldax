@@ -10,5 +10,4 @@ router.delete('/movies/:id',deleteMovie);
 router.post('/movies',postMovie);
 router.patch('/movies/:id',patchMovie);
 
-
 module.exports = router;

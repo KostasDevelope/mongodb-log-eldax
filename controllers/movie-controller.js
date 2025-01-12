@@ -38,9 +38,9 @@ const searchMovies = (req,res) =>
                     .skip((page - 1) * limit)
                     .limit(limit)
                     .then((movies) => {
-                        const result = {
+                        let result = {
                             success: true,
-                            data: JSON.parse(movies),
+                            data: movies,
                             total: total.toString(),
                             page: page.toString(),
                             last_page: last_page.toString(),
