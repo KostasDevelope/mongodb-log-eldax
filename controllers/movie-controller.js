@@ -12,6 +12,44 @@ const getMovies = (req,res) =>
         .catch((error)=>  hendleError(res, error )); 
 };
 
+const searchMovies = (req,res) =>
+    {
+        let options = {};
+        if (req.params.search) {
+            options = {
+                ...options,
+                $or: [
+                    { title: new RegExp(req.params.search.toString(), 'i')},
+                    { director : new RegExp(req.params.search.toString(), 'i')}
+                ]
+            }
+        }
+        Movie.countDocuments(options)
+            .then((total) => {
+                let page = parseInt(req.params.page) || 1; 
+                let limit = parseInt(req.params.limit) || parseInt(total);
+                let last_page = Math.ceil(parseInt( total)/limit);
+            
+                if (last_page < 1 && total > 0) 
+                    last_page = 1
+                Movie
+                    .find(options)
+                    .sort({title : -1})
+                    .skip((page - 1) * limit)
+                    .limit(limit)
+                    .then((movies) => {
+                        const result = {
+                            success: true,
+                            data: JSON.parse(movies),
+                            total: total.toString(),
+                            page: page.toString(),
+                            last_page: last_page.toString(),
+                        };
+                        res.status(200).json(result);
+                    }).catch((error)=>  hendleError(res, error ));
+            }).catch((error)=>  hendleError(res, error ));    
+    };
+
 const getMovie = (req,res) =>
     {
         Movie
@@ -59,5 +97,6 @@ module.exports = {
     getMovie,
     deleteMovie,
     postMovie,
-    patchMovie
+    patchMovie,
+    searchMovies
 };

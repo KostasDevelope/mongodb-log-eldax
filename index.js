@@ -4,7 +4,7 @@ const nconf = require('nconf');
 const mongoose = require('mongoose');
 const MovieRoutes = require('./routes/movie-routes');  
 const SwaggerRoutes = require('./routes/swagger-routes');  
-conf.argv().env().file({ file: 'config.json' });
+nconf.argv().env().file({ file: 'config.json' });
 
 //https://github.com/YauhenKavalchuk/mongodb/blob/lesson_20/server.js
 const port = nconf.get('port');;
