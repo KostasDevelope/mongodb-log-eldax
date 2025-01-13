@@ -28,3 +28,5 @@ https://pm2.keymetrics.io/docs/usage/quick-start/
   //==============================mongodb===============
   brew services start mongodb-community
 
+
+mongodb://srvnt68-isrtsql:27017/moviebox

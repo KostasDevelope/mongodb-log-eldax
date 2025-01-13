@@ -1,4 +1,4 @@
 {
-    "url-mongodb" : "mongodb://localhost:27017/moviebox",
+    "url-mongodb" : "mongodb://srvnt68-isrtsql:27017/moviebox",
     "port": "3000"
 }
