@@ -96,7 +96,41 @@ router.get('/movies/:search/:page/:limit',searchMovies);
  */
 router.delete('/movies/:id',deleteMovie);
 
-
+/**
+ * @swagger
+ * /movies:
+ *   post:
+ *     parameters:
+ *      - in: body
+ *        name: movie
+ *        description: New movie
+ *        schema:
+ *          type: object
+ *          properties:
+ *            title:
+ *              type: string
+ *            director:
+ *              type: string
+ *            year:
+ *              type: string
+ *            genres:
+ *              schema:
+ *                 type: object
+ *            duration: 
+ *              schema:
+ *                 type: object
+ *            reviwes: 
+ *              schema:
+ *                 type: object
+ *                 properties:
+ *                    name: 
+ *                      type: string
+ *                    text:
+ *                      type: string
+ *     responses:
+ *       201:
+ *         description: Created new movie
+ */
 router.post('/movies',postMovie);
 
 /**

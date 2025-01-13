@@ -16,8 +16,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-//app.use(SwaggerRoutes);
-
 app.use(MovieRoutes);
 
 const swaggerOptions = {
@@ -29,17 +27,15 @@ const swaggerOptions = {
       },
   },
   apis:  [ './routes/movie-routes.js'] 
-}
-//console.log(`${__dirname}\routes\movie-routes.js`);
+};
 
 const swaggerDocument = swaggerJsDoc(swaggerOptions);
 app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-/*app.get('/api-docs.json', (req, res) => {
+app.get('/api-docs.json', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(swaggerDocument);
-});*/
-
+});
 
 app.listen(port,(error)=> error ? console.log(error) : console.log(`Listening port: ${port}`));
 
