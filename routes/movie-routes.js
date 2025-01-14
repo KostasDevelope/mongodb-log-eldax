@@ -1,7 +1,7 @@
 const express = require('express');
 const { getMovies, getMovie, deleteMovie, postMovie, patchMovie, searchMovies } = require('../controllers/movie-controller');
 const router = express.Router();
-
+//https://swagger.io/docs/specification/v3_0/describing-parameters/?sbsearch=parameters
 /**
  * @swagger
  * /movies:
@@ -21,7 +21,8 @@ router.get('/movies', getMovies);
  *      - in: path
  *        name: id
  *        required: true
- *        type: string
+ *        schema:
+ *          type: string
  *        description: The movie ID.
  *     description: Get a movie by id
  *     responses:
@@ -38,12 +39,14 @@ router.get('/movies/:id',getMovie);
  *      - in: path
  *        name: page
  *        required: true
- *        type: int
+ *        schema:
+ *          type: integer
  *        description: The page of movies.
  *      - in: path
  *        name: limit
  *        required: true
- *        type: int
+ *        schema:
+ *          type: integer
  *        description: The limit of movies.
  *     description: Get a movies
  *     responses:
@@ -60,17 +63,20 @@ router.get('/movies/:page/:limit',searchMovies);
  *      - in: path
  *        name: search
  *        required: true
- *        type: string
+ *        schema:
+ *          type: string
  *        description: The search of movies.
  *      - in: path
  *        name: page
  *        required: true
- *        type: int
+ *        schema:
+ *          type: integer
  *        description: The page of movies.
  *      - in: path
  *        name: limit
  *        required: true
- *        type: int
+ *        schema:
+ *          type: integer
  *        description: The limit of movies.
  *     description: Get a movies
  *     responses:
@@ -87,7 +93,8 @@ router.get('/movies/:search/:page/:limit',searchMovies);
  *      - in: path
  *        name: id
  *        required: true
- *        type: string
+ *        schema:
+ *          type: string
  *        description: The movie ID.
  *     description: Delete a movie by id
  *     responses:
@@ -102,34 +109,27 @@ router.delete('/movies/:id',deleteMovie);
  *   post:
  *     parameters:
  *      - in: body
- *        name: movie
- *        description: New movie
- *        schema:
- *          type: object
- *          properties:
- *            title:
- *              type: string
- *            director:
- *              type: string
- *            year:
- *              type: string
- *            genres:
- *              schema:
- *                 type: object
- *            duration: 
- *              schema:
- *                 type: object
- *            reviwes: 
- *              schema:
- *                 type: object
- *                 properties:
- *                    name: 
- *                      type: string
- *                    text:
- *                      type: string
- *     responses:
- *       201:
- *         description: Created new movie
+ *        content:
+ *           application/json:
+    *        schema:
+    *          type: object
+    *          properties:
+    *            title:
+    *               type: string
+    *            director:
+    *                 type: string
+    *            year: 
+    *                type: integer
+    *            genres:
+    *                 type: object
+    *            duration: 
+    *                 type: object
+    *            reviwes: 
+    *                 type: object
+    *                 
+    *     responses:
+    *       201:
+    *         description: Created new movie
  */
 router.post('/movies',postMovie);
 
@@ -143,6 +143,25 @@ router.post('/movies',postMovie);
  *        required: true
  *        type: string
  *        description: The movie ID.
+ *      - in: body
+ *        content:
+ *           application/json:
+ *            schema:
+ *             type: object
+ *             properties:
+    *            title:
+    *               type: string
+    *            director:
+    *                 type: string
+    *            year: 
+    *                type: integer
+    *            genres:
+    *                 type: object
+    *            duration: 
+    *                 type: object
+    *            reviwes: 
+    *                 type: object
+    *                 
  *     description: Patch a movie by id
  *     responses:
  *       200:
