@@ -6,7 +6,8 @@ const swaggerUi = require('swagger-ui-express');
 
 const mongoose = require('mongoose');
 const MovieRoutes = require('./routes/movie-routes');  
-//const SwaggerRoutes = require('./routes/swagger-routes');  
+
+
 nconf.argv().env().file({ file: 'config.json' });
 
 const port = nconf.get('port');;
@@ -26,7 +27,7 @@ const swaggerOptions = {
           description: "A REST API built with Express and MongoDB. This API provides movie catchphrases and the context of the catchphrase in the movie."
       },
   },
-  apis:  [ './routes/movie-routes.js'] 
+  apis: [ './routes/*.js'] 
 };
 
 const swaggerDocument = swaggerJsDoc(swaggerOptions);
