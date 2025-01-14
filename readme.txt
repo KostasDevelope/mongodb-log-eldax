@@ -30,3 +30,4 @@ https://pm2.keymetrics.io/docs/usage/quick-start/
 
 
 mongodb://srvnt68-isrtsql:27017/moviebox
+mongodb://localhost:27017/movieboe
