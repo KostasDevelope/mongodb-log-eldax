@@ -7,6 +7,8 @@ const router = express.Router();
  * @swagger
  * /movies:
  *   get:
+ *     tags:
+ *       - Movies
  *     description: All movies
  *     responses:
  *       200:
@@ -18,6 +20,8 @@ router.get('/movies', getMovies);
  * @swagger
  * /movies/{id}:
  *   get:
+ *     tags:
+ *       - Movies
  *     parameters:
  *      - in: path
  *        name: id
@@ -36,6 +40,8 @@ router.get('/movies/:id',getMovie);
  * @swagger
  * /movies/{page}/{limit}:
  *   get:
+ *     tags:
+ *       - Movies
  *     parameters:
  *      - in: path
  *        name: page
@@ -60,6 +66,8 @@ router.get('/movies/:page/:limit',searchMovies);
  * @swagger
  * /movies/{search}/{page}/{limit}:
  *   get:
+ *     tags:
+ *       - Movies
  *     parameters:
  *      - in: path
  *        name: search
@@ -90,6 +98,8 @@ router.get('/movies/:search/:page/:limit',searchMovies);
  * @swagger
  * /movies/{id}:
  *   delete:
+ *     tags:
+ *       - Movies
  *     parameters:
  *      - in: path
  *        name: id
@@ -108,6 +118,8 @@ router.delete('/movies/:id',deleteMovie);
  * @swagger
  * /movies:
  *   post:
+ *     tags:
+ *       - Movies
  *     requestBody:
  *        required: true
  *        content:
@@ -142,6 +154,8 @@ router.post('/movies',postMovie);
  * @swagger
  * /movies/{id}:
  *   patch:
+ *     tags:
+ *       - Movies
  *     parameters:
  *      - in: path
  *        name: id
