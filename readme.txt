@@ -23,11 +23,13 @@ https://withmike.co.za/articles/build-a-nodejs-rest-api-with-express-and-mongodb
 
 https://pm2.keymetrics.io/docs/usage/quick-start/
  npm install pm2@latest -g
-  pm2 start main.js
+ pm2 start main.js
 
   //==============================mongodb===============
   brew services start mongodb-community
 
+//==================mongodb==========================
+ mongodb://srvnt68-isrtsql:27017/moviebox
+ mongodb://localhost:27017/movieboe
 
-mongodb://srvnt68-isrtsql:27017/moviebox
-mongodb://localhost:27017/movieboe
+//==================swagger============================

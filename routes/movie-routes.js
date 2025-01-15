@@ -109,27 +109,31 @@ router.delete('/movies/:id',deleteMovie);
  *   post:
  *     parameters:
  *      - in: body
- *        content:
- *           application/json:
-    *        schema:
-    *          type: object
-    *          properties:
-    *            title:
-    *               type: string
-    *            director:
-    *                 type: string
-    *            year: 
-    *                type: integer
-    *            genres:
-    *                 type: object
-    *            duration: 
-    *                 type: object
-    *            reviwes: 
-    *                 type: object
-    *                 
-    *     responses:
-    *       201:
-    *         description: Created new movie
+ *        name: movie
+ *        description: New movie
+ *        schema:
+ *          type: object
+ *          properties:
+ *            title:
+ *              type: string
+ *            director:
+ *              type: string
+ *            year:
+ *              type: integer
+ *            genres:
+ *               type: array
+ *               items:
+ *                 type: string
+ *            duration:
+ *                type: object
+ *                properties:
+ *                    hours:
+ *                      type: integer
+ *                    minutes:
+ *                      type: integer 
+ *     responses:
+ *       201:
+ *         description: Created new movie
  */
 router.post('/movies',postMovie);
 
