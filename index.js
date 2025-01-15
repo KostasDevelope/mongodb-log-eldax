@@ -23,7 +23,7 @@ const swaggerOptions = {
   definition: {
     openapi: '3.0.0',  
     info: {
-          title: 'Momgo Db REST API',
+          title: 'Mongo Db REST API',
           description: "A REST API built with Express and MongoDB. This API provides movie catchphrases and the context of the catchphrase in the movie."
       },
   },
