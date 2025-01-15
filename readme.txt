@@ -30,6 +30,6 @@ https://pm2.keymetrics.io/docs/usage/quick-start/
 
 //==================mongodb==========================
  mongodb://srvnt68-isrtsql:27017/moviebox
- mongodb://localhost:27017/movieboe
+ mongodb://localhost:27017/moviebox
 
 //==================swagger============================
