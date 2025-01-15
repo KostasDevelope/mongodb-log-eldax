@@ -148,25 +148,30 @@ router.post('/movies',postMovie);
  *        required: true
  *        type: string
  *        description: The movie ID.
- *      - in: body
+ *     requestBody:
+ *        required: true
  *        content:
  *           application/json:
- *            schema:
- *             type: object
- *             properties:
-    *            title:
-    *               type: string
-    *            director:
-    *                 type: string
-    *            year: 
-    *                type: integer
-    *            genres:
-    *                 type: object
-    *            duration: 
-    *                 type: object
-    *            reviwes: 
-    *                 type: object
-    *                 
+ *              schema:
+ *                 type: object
+ *                 properties:
+ *                   title:
+ *                     type: string
+ *                   director:
+ *                     type: string
+ *                   year:
+ *                     type: integer
+ *                   genres:
+ *                      type: array
+ *                      items:
+ *                        type: string
+ *                   duration:
+ *                       type: object
+ *                       properties:
+ *                          hours:
+ *                            type: integer
+ *                          minutes:
+ *                            type: integer 
  *     description: Patch a movie by id
  *     responses:
  *       200:
