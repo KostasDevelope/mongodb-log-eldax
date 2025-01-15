@@ -2,6 +2,7 @@ const express = require('express');
 const { getMovies, getMovie, deleteMovie, postMovie, patchMovie, searchMovies } = require('../controllers/movie-controller');
 const router = express.Router();
 //https://swagger.io/docs/specification/v3_0/describing-parameters/?sbsearch=parameters
+//https://swagger.io/docs/specification/v3_0/describing-request-body/describing-request-body/
 /**
  * @swagger
  * /movies:
@@ -107,30 +108,30 @@ router.delete('/movies/:id',deleteMovie);
  * @swagger
  * /movies:
  *   post:
- *     parameters:
- *      - in: body
- *        name: movie
- *        description: New movie
- *        schema:
- *          type: object
- *          properties:
- *            title:
- *              type: string
- *            director:
- *              type: string
- *            year:
- *              type: integer
- *            genres:
- *               type: array
- *               items:
- *                 type: string
- *            duration:
- *                type: object
- *                properties:
- *                    hours:
- *                      type: integer
- *                    minutes:
- *                      type: integer 
+ *     requestBody:
+ *        required: true
+ *        content:
+ *           application/json:
+ *              schema:
+ *                 type: object
+ *                 properties:
+ *                   title:
+ *                     type: string
+ *                   director:
+ *                     type: string
+ *                   year:
+ *                     type: integer
+ *                   genres:
+ *                      type: array
+ *                      items:
+ *                        type: string
+ *                   duration:
+ *                       type: object
+ *                       properties:
+ *                          hours:
+ *                            type: integer
+ *                          minutes:
+ *                            type: integer 
  *     responses:
  *       201:
  *         description: Created new movie
