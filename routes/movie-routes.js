@@ -143,7 +143,16 @@ router.delete('/movies/:id',deleteMovie);
  *                          hours:
  *                            type: integer
  *                          minutes:
- *                            type: integer 
+ *                            type: integer
+ *                   reviews:
+ *                       type: array
+ *                       items: 
+ *                         type: object
+ *                         properties:
+ *                           name:
+ *                             type: string
+ *                           text:
+ *                             type: string
  *     responses:
  *       201:
  *         description: Created new movie
@@ -185,8 +194,17 @@ router.post('/movies',postMovie);
  *                          hours:
  *                            type: integer
  *                          minutes:
- *                            type: integer 
- *     description: Patch a movie by id
+ *                            type: integer
+ *                   reviews:
+ *                       type: array
+ *                       items: 
+ *                         type: object
+ *                         properties:
+ *                           name:
+ *                             type: string
+ *                           text:
+ *                             type: string
+ *        description: Patch a movie by id
  *     responses:
  *       200:
  *         description: Returns the requested 
