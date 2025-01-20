@@ -186,9 +186,13 @@ module.exports = {
     getMovies,
     getMovies2,
     getMovie,
+    getMovie2,
     deleteMovie,
+    deleteMovie2,
     postMovie,
+    postMovie2,
     patchMovie,
+    patchMovie2,
     searchMovies,
     searchMovies2
 };
