@@ -108,6 +108,17 @@ const getMovie = (req,res) =>
             .catch((error)=>  hendleError(res, error )); 
     };
 
+const getMovie2 = async (req,res) =>
+    {
+        try {
+            let result = await Movie.findById(req.params.id);
+            
+            res.status(200).json(result);
+        } catch(error) {
+            hendleError(res, error);
+        } 
+    };
+
 const deleteMovie = (req,res) =>
     {
         Movie
@@ -116,6 +127,16 @@ const deleteMovie = (req,res) =>
             res.status(200).json(result);
             })
             .catch((error)=>  hendleError(res, error )); 
+    };
+
+const deleteMovie2 = async (req,res) =>
+    {
+        try {
+            let result = await Movie.findByIdAndDelete(req.params.id)
+            res.status(200).json(result);
+        } catch(error) {
+            hendleError(res, error);
+        } 
     };
 
 const postMovie = (req,res) =>
@@ -128,6 +149,18 @@ const postMovie = (req,res) =>
             .catch((error)=>  hendleError(res, error )); 
     }; 
 
+const postMovie2 = async (req,res) =>
+    {
+        try {
+
+            const movie = new Movie(req.body);
+            let result =  await movie.save();
+            res.status(201).json(result);
+
+        } catch(error) {
+            hendleError(res, error);
+        } 
+    };
     
 const patchMovie = (req,res) =>
     {
@@ -138,7 +171,16 @@ const patchMovie = (req,res) =>
             })
             .catch((error)=>  hendleError(res, error )); 
     }; 
-        
+
+const patchMovie2 = async (req,res) =>
+    {
+        try {
+            let result = await Movie.findByIdAndUpdate(req.params.id, req.body);
+            res.status(200).json(result);
+        } catch(error){
+            hendleError(res, error )
+        } 
+    };
 
 module.exports = {
     getMovies,
