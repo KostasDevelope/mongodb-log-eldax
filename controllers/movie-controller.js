@@ -3,14 +3,21 @@ const hendleError = (res,error) => { res.status(500).json(error); };
 
 const getMovies = (req,res) =>
 {
-    Movie
-        .find()
-        .sort({title : -1})
-        .then((movies)=>{
+    Movie.find().sort({title : -1}).then((movies)=>{
         res.status(200).json(movies);
         })
         .catch((error)=>  hendleError(res, error )); 
 };
+
+const getMovies2 = async (req,res) =>
+    {
+        try {
+            let movies = await Movie.find().sort({title : -1});
+            res.status(200).json(movies);
+        } catch(error){
+            hendleError(res, error);
+        } 
+    };
 
 const searchMovies = (req,res) =>
     {
@@ -72,8 +79,7 @@ const searchMovies2 = async (req,res) =>
             
             if (last_page < 1 && total > 0) last_page = 1
             
-            let movies = await Movie
-                .find(options)
+            let movies = await Movie.find(options)
                 .sort({title : -1})
                 .skip((page - 1) * limit)
                 .limit(limit);
@@ -95,8 +101,7 @@ const searchMovies2 = async (req,res) =>
 
 const getMovie = (req,res) =>
     {
-        Movie
-            .findById(req.params.id)
+        Movie.findById(req.params.id)
             .then((movie)=>{
                 res.status(200).json(movie);
             })
@@ -137,6 +142,7 @@ const patchMovie = (req,res) =>
 
 module.exports = {
     getMovies,
+    getMovies2,
     getMovie,
     deleteMovie,
     postMovie,
