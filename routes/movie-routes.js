@@ -1,5 +1,5 @@
 const express = require('express');
-const { getMovies, getMovie, deleteMovie, postMovie, patchMovie, searchMovies } = require('../controllers/movie-controller');
+const { getMovies, getMovie, deleteMovie, postMovie, patchMovie, searchMovies, searchMovies2 } = require('../controllers/movie-controller');
 const router = express.Router();
 //https://swagger.io/docs/specification/v3_0/describing-parameters/?sbsearch=parameters
 //https://swagger.io/docs/specification/v3_0/describing-request-body/describing-request-body/
@@ -60,7 +60,7 @@ router.get('/movies/:id',getMovie);
  *       200:
  *         description: Returns the requested movies
  */
-router.get('/movies/:page/:limit',searchMovies);  
+router.get('/movies/:page/:limit',searchMovies2);  
 
 /**
  * @swagger
@@ -92,7 +92,7 @@ router.get('/movies/:page/:limit',searchMovies);
  *       200:
  *         description: Returns the requested movies
  */
-router.get('/movies/:search/:page/:limit',searchMovies);
+router.get('/movies/:search/:page/:limit',  searchMovies2);
 
 /**
  * @swagger

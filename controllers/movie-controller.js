@@ -48,6 +48,51 @@ const searchMovies = (req,res) =>
             }).catch((error)=>  hendleError(res, error ));    
     };
 
+const searchMovies2 = async (req,res) =>
+    {
+        try {
+            let options = {};
+            if (req.params.search) {
+                options = {
+                    ...options,
+                    $or: [
+                        { title: new RegExp(req.params.search.toString(), 'i')},
+                        { director : new RegExp(req.params.search.toString(), 'i')}
+                    ]
+                }
+            }
+            
+            let total = await Movie.countDocuments(options);
+                    
+            let page = parseInt(req.params.page) || 1; 
+            
+            let limit = parseInt(req.params.limit) || parseInt(total);
+            
+            let last_page = Math.ceil(parseInt(total)/limit);
+            
+            if (last_page < 1 && total > 0) last_page = 1
+            
+            let movies = await Movie
+                .find(options)
+                .sort({title : -1})
+                .skip((page - 1) * limit)
+                .limit(limit);
+                
+            let result = {
+                success: true,
+                data: movies,
+                total: total.toString(),
+                page: page.toString(),
+                last_page: last_page.toString(),
+            };
+
+            res.status(200).json(result);
+                        
+        } catch(error){    
+            hendleError(res, error );    
+        }    
+    };
+
 const getMovie = (req,res) =>
     {
         Movie
@@ -96,5 +141,6 @@ module.exports = {
     deleteMovie,
     postMovie,
     patchMovie,
-    searchMovies
+    searchMovies,
+    searchMovies2
 };
