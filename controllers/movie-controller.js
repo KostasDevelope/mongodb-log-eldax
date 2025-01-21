@@ -6,7 +6,7 @@ const getMovies = (req,res) =>
     Movie.find().sort({title : -1}).then((movies)=>{
         res.status(200).json(movies);
         })
-        .catch((error)=>  hendleError(res, error )); 
+        .catch((error)=>  hendleError(res, error)); 
 };
 
 const getMovies2 = async (req,res) =>
@@ -51,8 +51,8 @@ const searchMovies = (req,res) =>
                             last_page: last_page.toString(),
                         };
                         res.status(200).json(result);
-                    }).catch((error)=>  hendleError(res, error ));
-            }).catch((error)=>  hendleError(res, error ));    
+                    }).catch((error)=>  hendleError(res, error));
+            }).catch((error)=>  hendleError(res, error));    
     };
 
 const searchMovies2 = async (req,res) =>
@@ -95,7 +95,7 @@ const searchMovies2 = async (req,res) =>
             res.status(200).json(result);
                         
         } catch(error){    
-            hendleError(res, error );    
+            hendleError(res, error);    
         }    
     };
 
@@ -105,7 +105,7 @@ const getMovie = (req,res) =>
             .then((movie)=>{
                 res.status(200).json(movie);
             })
-            .catch((error)=>  hendleError(res, error )); 
+            .catch((error)=>  hendleError(res, error)); 
     };
 
 const getMovie2 = async (req,res) =>
@@ -126,7 +126,7 @@ const deleteMovie = (req,res) =>
             .then((result)=>{
             res.status(200).json(result);
             })
-            .catch((error)=>  hendleError(res, error )); 
+            .catch((error)=>  hendleError(res, error)); 
     };
 
 const deleteMovie2 = async (req,res) =>
@@ -146,7 +146,7 @@ const postMovie = (req,res) =>
             .then((result)=>{
             res.status(201).json(result);
             })
-            .catch((error)=>  hendleError(res, error )); 
+            .catch((error)=>  hendleError(res, error)); 
     }; 
 
 const postMovie2 = async (req,res) =>
@@ -169,7 +169,7 @@ const patchMovie = (req,res) =>
             .then((result)=>{
             res.status(200).json(result);
             })
-            .catch((error)=>  hendleError(res, error )); 
+            .catch((error)=>  hendleError(res, error)); 
     }; 
 
 const patchMovie2 = async (req,res) =>
@@ -178,7 +178,7 @@ const patchMovie2 = async (req,res) =>
             let result = await Movie.findByIdAndUpdate(req.params.id, req.body);
             res.status(200).json(result);
         } catch(error){
-            hendleError(res, error )
+            hendleError(res, error);
         } 
     };
 
