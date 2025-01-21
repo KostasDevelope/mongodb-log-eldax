@@ -1,5 +1,5 @@
 const express = require('express');
-const { getMovies, getMovie, deleteMovie, postMovie, patchMovie, searchMovies, searchMovies2 } = require('../controllers/movie-controller');
+const { getMovies2, getMovie2, deleteMovie2, postMovie2, patchMovie2, searchMovies2 } = require('../controllers/movie-controller');
 const router = express.Router();
 //https://swagger.io/docs/specification/v3_0/describing-parameters/?sbsearch=parameters
 //https://swagger.io/docs/specification/v3_0/describing-request-body/describing-request-body/
@@ -14,7 +14,7 @@ const router = express.Router();
  *       200:
  *         description: Returns all the /movies
  */
-router.get('/movies', getMovies);
+router.get('/movies', getMovies2);
 
 /**
  * @swagger
@@ -34,7 +34,7 @@ router.get('/movies', getMovies);
  *       200:
  *         description: Returns the requested movie
  */
-router.get('/movies/:id',getMovie);   
+router.get('/movies/:id',getMovie2);   
 
 /**
  * @swagger
@@ -60,7 +60,7 @@ router.get('/movies/:id',getMovie);
  *       200:
  *         description: Returns the requested movies
  */
-router.get('/movies/:page/:limit',searchMovies2);  
+router.get('/movies/:page/:limit', searchMovies2);  
 
 /**
  * @swagger
@@ -92,7 +92,7 @@ router.get('/movies/:page/:limit',searchMovies2);
  *       200:
  *         description: Returns the requested movies
  */
-router.get('/movies/:search/:page/:limit',  searchMovies2);
+router.get('/movies/:search/:page/:limit', searchMovies2);
 
 /**
  * @swagger
@@ -112,7 +112,7 @@ router.get('/movies/:search/:page/:limit',  searchMovies2);
  *       200:
  *         description: Returns the requested 
  */
-router.delete('/movies/:id',deleteMovie);
+router.delete('/movies/:id', deleteMovie2);
 
 /**
  * @swagger
@@ -157,7 +157,7 @@ router.delete('/movies/:id',deleteMovie);
  *       201:
  *         description: Created new movie
  */
-router.post('/movies',postMovie);
+router.post('/movies', postMovie2);
 
 /**
  * @swagger
@@ -209,6 +209,6 @@ router.post('/movies',postMovie);
  *       200:
  *         description: Returns the requested 
  */
-router.patch('/movies/:id',patchMovie);
+router.patch('/movies/:id', patchMovie2);
 
 module.exports = router;
