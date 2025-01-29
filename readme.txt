@@ -32,4 +32,10 @@ https://pm2.keymetrics.io/docs/usage/quick-start/
  mongodb://srvnt68-isrtsql:27017/moviebox
  mongodb://localhost:27017/moviebox
 
-//==================swagger============================
+//==================SSL============================
+https://medium.com/@nirbhay0299/enable-https-in-your-typescript-express-app-using-the-pkcs12-file-f86e53535ca
+
+https://sl08-zurnalcinnosti.eldax.cz:6001/
+
+
+

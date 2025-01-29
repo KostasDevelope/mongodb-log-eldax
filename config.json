@@ -1,6 +1,6 @@
 {
     "url-mongodb": "mongodb://srvnt68-isrtsql:27017/moviebox",
     "port": "6001",
-    "server-key": "",
-    "server-crt": ""
+    "server-key": "./ssl/privateKey.pfx",
+    "server-crt": "./ssl/PublicKey.cer"
 }

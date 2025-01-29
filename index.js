@@ -43,11 +43,12 @@ app.get('/api-docs.json', (req, res) => {
 
 if( serverkey != '' && servercrt != ''){
       let httpsOptions = {
-              key: fs.readFileSync(erverkey),
-              cert: fs.readFileSync(servercrt)
+              key: fs.readFileSync(serverkey,'utf8'),
+              cert: fs.readFileSync(servercrt,'utf8')
             };
  
-    https.createServer(httpsOptions, app).listen(port);
+     const apphttps = https.createServer(httpsOptions, app);
+     apphttps.listen(port,(error)=> error ? console.log(error) : console.log(`Listening port: ${port}`));
 } else {
    app.listen(port,(error)=> error ? console.log(error) : console.log(`Listening port: ${port}`));
 }
@@ -55,3 +56,8 @@ if( serverkey != '' && servercrt != ''){
 mongoose.connect(urlmongodb)
   .then(()=> console.log(`Connected to MongoDb`))
   .catch((error) => console.log(`Connected error ${error}`));
+
+
+  //https://stepansuvorov.com/blog/2012/09/%D0%B4%D0%B5%D0%BB%D0%B0%D0%B5%D0%BC-https-%D0%BD%D0%B0-node-js-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D1%8F-express/
+  //https://ru.stackoverflow.com/questions/1416128/%D0%BA%D0%B0%D0%BA-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D1%82%D0%B8%D1%82%D1%8C-https-node-express-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80-%D0%B1%D0%B5%D0%B7-%D0%B4%D0%BE%D0%BC%D0%B5%D0%BD%D0%B0
+//https://stackoverflow.com/questions/11744975/enabling-https-on-express-js
