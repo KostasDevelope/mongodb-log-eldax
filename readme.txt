@@ -37,5 +37,6 @@ https://medium.com/@nirbhay0299/enable-https-in-your-typescript-express-app-usin
 
 https://sl08-zurnalcinnosti.eldax.cz:6001/
 
+https://medium.com/@nirbhay0299/enable-https-in-your-typescript-express-app-using-the-pkcs12-file-f86e53535ca
 
 

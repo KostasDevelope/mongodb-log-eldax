@@ -43,12 +43,12 @@ app.get('/api-docs.json', (req, res) => {
 
 if( serverkey != '' && servercrt != ''){
       let httpsOptions = {
-              key: fs.readFileSync(serverkey,'utf8'),
-              cert: fs.readFileSync(servercrt,'utf8')
+              key: fs.readFileSync(serverkey, 'utf8'),
+              cert: fs.readFileSync(servercrt, 'utf8')
             };
  
-     const apphttps = https.createServer(httpsOptions, app);
-     apphttps.listen(port,(error)=> error ? console.log(error) : console.log(`Listening port: ${port}`));
+     https.createServer(httpsOptions, app)
+     .listen(port,(error)=> error ? console.log(error) : console.log(`Listening port: ${port}`));
 } else {
    app.listen(port,(error)=> error ? console.log(error) : console.log(`Listening port: ${port}`));
 }
