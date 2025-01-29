@@ -1,17 +1,20 @@
 const express = require('express');
 const cors = require('cors');
+const https = require( 'https');
+const fs = require('fs');
 const nconf = require('nconf');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
-
 const mongoose = require('mongoose');
 const MovieRoutes = require('./routes/movie-routes');  
 
 
 nconf.argv().env().file({ file: 'config.json' });
+const port = nconf.get('port');
+const serverkey = nconf.get('server-key') || '';
+const servercrt = nconf.get('server-crt') || '';
+const urlmongodb = nconf.get('url-mongodb');
 
-const port = nconf.get('port');;
-const url = nconf.get('url-mongodb');
 const app = express();
 
 app.use(cors());
@@ -19,7 +22,7 @@ app.use(express.json());
 
 app.use(MovieRoutes);
 
-const swaggerOptions = {
+let swaggerOptions = {
   definition: {
     openapi: '3.0.0',  
     info: {
@@ -38,8 +41,17 @@ app.get('/api-docs.json', (req, res) => {
   res.send(swaggerDocument);
 });
 
-app.listen(port,(error)=> error ? console.log(error) : console.log(`Listening port: ${port}`));
+if( serverkey != '' && servercrt != ''){
+      let httpsOptions = {
+              key: fs.readFileSync(erverkey),
+              cert: fs.readFileSync(servercrt)
+            };
+ 
+    https.createServer(httpsOptions, app).listen(port);
+} else {
+   app.listen(port,(error)=> error ? console.log(error) : console.log(`Listening port: ${port}`));
+}
 
-mongoose.connect(url)
+mongoose.connect(urlmongodb)
   .then(()=> console.log(`Connected to MongoDb`))
   .catch((error) => console.log(`Connected error ${error}`));
