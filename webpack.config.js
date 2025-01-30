@@ -37,7 +37,7 @@ module.exports = {
         extractComments: {
           condition: /^\**!|@swagger/i,
           filename: (fileData) => {
-            return './routes/movie-routes.js';
+            return './routes/storage-routes.js';
           },
         },
       }),
